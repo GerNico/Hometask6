@@ -2,7 +2,7 @@ package swets_as_goods.candy_implementations;
 
 import swets_as_goods.SugarBasedSweet;
 
-public class CandyMooMoo extends SugarBasedSweet {
+public class CandyWithWrapper extends SugarBasedSweet {
 String name;
 String wrapper;
 

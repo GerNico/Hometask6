@@ -2,7 +2,7 @@ package swets_as_goods;
 
 import java.time.LocalDate;
 
-public abstract class AbstractSweet implements Comparable<AbstractSweet> {
+public abstract class AbstractSweet {
     private String producerRequisites;
     private String contentDescription;
 
@@ -10,11 +10,6 @@ public abstract class AbstractSweet implements Comparable<AbstractSweet> {
     private int storageTimeInDays;
 
     private String technicalCard;
-    private ContentOfSweet contentOfSweet;
-
-    public ContentOfSweet getContentOfSweet() {
-        return contentOfSweet;
-    }
 
     public String getTechnicalCard() {
         return technicalCard;
@@ -26,10 +21,6 @@ public abstract class AbstractSweet implements Comparable<AbstractSweet> {
 
     public LocalDate getExpirationDate() {
         return this.productionDate.plusDays(this.storageTimeInDays);
-    }
-
-    public void setContentOfSweet(ContentOfSweet contentOfSweet) {
-        this.contentOfSweet = contentOfSweet;
     }
 
     public String getProducerRequisites() {

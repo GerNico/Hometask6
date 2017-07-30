@@ -3,26 +3,37 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="172.0" y="319.0">swets_as_goods.Baking</node>
-    <node x="118.0" y="162.0">swets_as_goods.components.ChocolateWhite</node>
-    <node x="276.0" y="162.0">swets_as_goods.components.ChocolateBlack</node>
-    <node x="87.0" y="0.0">swets_as_goods.components.InterfaceSweetComponent</node>
-    <node x="8.5" y="400.0">swets_as_goods.candy_implementations.CandyMooMoo</node>
-    <node x="80.0" y="81.0">swets_as_goods.components.AbstractComponentForSweet</node>
+    <node x="204.5" y="319.0">swets_as_goods.Baking</node>
+    <node x="274.0" y="162.0">swets_as_goods.components.ChocolateWhite</node>
+    <node x="118.0" y="162.0">swets_as_goods.components.ChocolateBlack</node>
+    <node x="179.0" y="400.0">swets_as_goods.candy_implementations.CookiesInAPack</node>
+    <node x="86.0" y="0.0">swets_as_goods.components.InterfaceSweetComponent</node>
+    <node x="79.0" y="81.0">swets_as_goods.components.AbstractComponentForSweet</node>
+    <node x="0.0" y="400.0">swets_as_goods.candy_implementations.CandyWithWrapper</node>
     <node x="0.0" y="162.0">swets_as_goods.components.Caramel</node>
-    <node x="80.5" y="238.0">swets_as_goods.AbstractSweet</node>
-    <node x="0.0" y="319.0">swets_as_goods.SugarBasedSweet</node>
+    <node x="98.5" y="238.0">swets_as_goods.AbstractSweet</node>
+    <node x="3.5" y="319.0">swets_as_goods.SugarBasedSweet</node>
   </nodes>
   <notes />
   <edges>
-    <edge source="swets_as_goods.components.ChocolateWhite" target="swets_as_goods.components.AbstractComponentForSweet">
+    <edge source="swets_as_goods.candy_implementations.CookiesInAPack" target="swets_as_goods.Baking">
       <point x="0.0" y="-15.5" />
       <point x="0.0" y="15.5" />
     </edge>
+    <edge source="swets_as_goods.candy_implementations.CandyWithWrapper" target="swets_as_goods.SugarBasedSweet">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="swets_as_goods.components.ChocolateWhite" target="swets_as_goods.components.AbstractComponentForSweet">
+      <point x="0.0" y="-15.5" />
+      <point x="343.0" y="137.0" />
+      <point x="257.3333333333333" y="137.0" />
+      <point x="71.33333333333331" y="15.5" />
+    </edge>
     <edge source="swets_as_goods.Baking" target="swets_as_goods.AbstractSweet">
       <point x="0.0" y="-15.5" />
-      <point x="216.0" y="294.0" />
-      <point x="178.75" y="294.0" />
+      <point x="248.5" y="294.0" />
+      <point x="196.75" y="294.0" />
       <point x="32.75" y="15.5" />
     </edge>
     <edge source="swets_as_goods.components.AbstractComponentForSweet" target="swets_as_goods.components.InterfaceSweetComponent">
@@ -32,27 +43,21 @@
     <edge source="swets_as_goods.components.Caramel" target="swets_as_goods.components.AbstractComponentForSweet">
       <point x="0.0" y="-15.5" />
       <point x="49.0" y="137.0" />
-      <point x="115.66666666666667" y="137.0" />
+      <point x="114.66666666666667" y="137.0" />
       <point x="-71.33333333333333" y="15.5" />
-    </edge>
-    <edge source="swets_as_goods.candy_implementations.CandyMooMoo" target="swets_as_goods.SugarBasedSweet">
-      <point x="0.0" y="-15.5" />
-      <point x="0.0" y="15.5" />
     </edge>
     <edge source="swets_as_goods.components.ChocolateBlack" target="swets_as_goods.components.AbstractComponentForSweet">
       <point x="0.0" y="-15.5" />
-      <point x="344.0" y="137.0" />
-      <point x="258.3333333333333" y="137.0" />
-      <point x="71.33333333333331" y="15.5" />
+      <point x="0.0" y="15.5" />
     </edge>
     <edge source="swets_as_goods.SugarBasedSweet" target="swets_as_goods.AbstractSweet">
       <point x="0.0" y="-15.5" />
-      <point x="76.0" y="294.0" />
-      <point x="113.25" y="294.0" />
+      <point x="79.5" y="294.0" />
+      <point x="131.25" y="294.0" />
       <point x="-32.75" y="15.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="1.0" x="247.5" y="215.5" />
+  <settings layout="Hierarchic Group" zoom="1.0" x="206.0" y="241.0" />
   <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>

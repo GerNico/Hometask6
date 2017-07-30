@@ -1,14 +1,34 @@
 package swets_as_goods;
 
-import java.math.BigDecimal;
-
-public abstract class Baking extends AbstractSweet {
+public abstract class Baking extends AbstractSweet implements Comparable<Baking> {
     private Double packageSizeGrammes;
-    private Double pricePerPackage;
     private String typeOfPackage;
+    private int bakingTemperature;
+    private Double energeticValue;
+
+    public int getBakingTemperature() {
+        return bakingTemperature;
+    }
+
+    public void setBakingTemperature(int bakingTemperature) {
+        this.bakingTemperature = bakingTemperature;
+    }
+
+    @Override
+    public int compareTo(Baking other) {
+        return Double.compare(this.energeticValue, other.energeticValue);
+    }
 
     public String getTypeOfPackage() {
         return typeOfPackage;
+    }
+
+    public Double getEnergeticValue() {
+        return energeticValue;
+    }
+
+    public void setEnergeticValue(Double energeticValue) {
+        this.energeticValue = energeticValue;
     }
 
     public void setTypeOfPackage(String typeOfPackage) {
@@ -22,13 +42,4 @@ public abstract class Baking extends AbstractSweet {
     public void setPackageSizeGrammes(Double packageSizeGrammes) {
         this.packageSizeGrammes = packageSizeGrammes;
     }
-
-    public Double getPricePerPackage() {
-        return pricePerPackage;
-    }
-
-    public void setPricePerPackage(Double pricePerPackage) {
-        this.pricePerPackage = pricePerPackage;
-    }
-
 }

@@ -1,8 +1,8 @@
 package swets_as_goods;
 
-public abstract class SugarBasedSweet extends AbstractSweet {
+public abstract class SugarBasedSweet extends AbstractSweet implements Comparable<SugarBasedSweet> {
+    private ContentOfSweet contentOfSweet;
     private Double candyWeightGrammes;
-    private Double pricePerKilo;
 
     public Double getCandyWeightGrammes() {
         return candyWeightGrammes;
@@ -12,16 +12,15 @@ public abstract class SugarBasedSweet extends AbstractSweet {
         this.candyWeightGrammes = candyWeightGrammes;
     }
 
-    public Double getPricePerKilo() {
-        return pricePerKilo;
+    public void setContentOfSweet(ContentOfSweet contentOfSweet) {
+        this.contentOfSweet = contentOfSweet;
     }
-
-    public void setPricePerKilo(Double pricePerKilo) {
-        this.pricePerKilo = pricePerKilo;
+    public ContentOfSweet getContentOfSweet() {
+        return contentOfSweet;
     }
 
     @Override
-    public int compareTo(AbstractSweet other) {
-        return Double.compare(this.getContentOfSweet().getEnergeticValue(),other.getContentOfSweet().getEnergeticValue());
+    public int compareTo(SugarBasedSweet other) {
+        return Double.compare(this.getContentOfSweet().getEnergeticValue(), other.getContentOfSweet().getEnergeticValue());
     }
 }
