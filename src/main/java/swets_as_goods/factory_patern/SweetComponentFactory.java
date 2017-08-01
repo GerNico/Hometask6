@@ -9,12 +9,11 @@ import swets_as_goods.components.ChocolateWhite;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.math.BigDecimal;
 
-class SweetComponentFactory {
-    private Gson gson = new Gson();
+public abstract class SweetComponentFactory {
+    private static Gson gson = new Gson();
 
-    public Caramel makeCaramelSelia() {
+    static Caramel makeCaramelSelia() {
         try {
             ComponentDTO parsed = gson.fromJson(new FileReader("src/main/resources/Caramel.json"), ComponentDTO.class);
 
@@ -31,31 +30,36 @@ class SweetComponentFactory {
         }
     }
 
-    public ChocolateBlack makeChocolateBlackSample() {
+    static ChocolateBlack makeChocolateBlackSample() {
         try {
             ComponentDTO parsed = gson.fromJson(new FileReader("src/main/resources/BlackChoco.json"), ComponentDTO.class);
 
             ChocolateBlack chocolateBlackSample = new ChocolateBlack();
-        chocolateBlackSample.technologicalCardTodo();
-        chocolateBlackSample.setComponentName(parsed.getName());
-        chocolateBlackSample.setComponentProducer(parsed.getProducer());
-        chocolateBlackSample.setKkaloryesPer100Grammes(parsed.getKkaloryesPer100Grammes());
-        chocolateBlackSample.setPricePerKilo(parsed.getPricePerKilo());
-        return chocolateBlackSample;
+            chocolateBlackSample.technologicalCardTodo();
+            chocolateBlackSample.setComponentName(parsed.getName());
+            chocolateBlackSample.setComponentProducer(parsed.getProducer());
+            chocolateBlackSample.setKkaloryesPer100Grammes(parsed.getKkaloryesPer100Grammes());
+            chocolateBlackSample.setPricePerKilo(parsed.getPricePerKilo());
+            return chocolateBlackSample;
         } catch (FileNotFoundException e) {
             throw new DescriptionNotFound("There no black chocolate descriptions");
         }
     }
 
-    public ChocolateWhite makeChocolateWhiteSeria() {
-        ChocolateWhite chocolateWhiteSample = new ChocolateWhite();
-        chocolateWhiteSample.technologicalCardTodo();
-        chocolateWhiteSample.setComponentName("Білий шоколад Roshen");
-        chocolateWhiteSample.setComponentProducer("Кондитерська фабрика Карла Маркса \n " +
-                "проспект Науки, 1, Київ, Україна");
-        chocolateWhiteSample.setKkaloryesPer100Grammes(162.32);
-        chocolateWhiteSample.setPricePerKilo(48.3);
-        return chocolateWhiteSample;
+    static ChocolateWhite makeChocolateWhiteSeria() {
+        try {
+            ComponentDTO parsed = gson.fromJson(new FileReader("src/main/resources/BlackChoco.json"), ComponentDTO.class);
+
+            ChocolateWhite chocolateWhiteSample = new ChocolateWhite();
+            chocolateWhiteSample.technologicalCardTodo();
+            chocolateWhiteSample.setComponentName(parsed.getName());
+            chocolateWhiteSample.setComponentProducer(parsed.getProducer());
+            chocolateWhiteSample.setKkaloryesPer100Grammes(parsed.getKkaloryesPer100Grammes());
+            chocolateWhiteSample.setPricePerKilo(parsed.getPricePerKilo());
+            return chocolateWhiteSample;
+        } catch (FileNotFoundException e) {
+            throw new DescriptionNotFound("There no white chocolate descriptions");
+        }
     }
 
 }

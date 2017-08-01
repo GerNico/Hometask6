@@ -1,44 +1,102 @@
 package swets_as_goods.factory_patern;
 
+import com.google.gson.Gson;
 import swets_as_goods.ContentOfSweet;
+import swets_as_goods.JSON.CandyDTO;
+import swets_as_goods.JSON.DescriptionNotFound;
 import swets_as_goods.candy_implementations.CandyWithWrapper;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.time.LocalDate;
 
-public class SweetsFactory {
-    public CandyWithWrapper makeMooMoo(){
-        CandyWithWrapper candyMooMoo=new CandyWithWrapper();
-        candyMooMoo.setName("Корівка");
-        candyMooMoo.setWrapper("Крута корівка + ше шото там");
-        candyMooMoo.setCandyWeightGrammes(17.2);
-        candyMooMoo.setContentDescription("цукор, молоко незбиране згущене з цукром, патока, жир рослинний, " +
-                "кукурудзяні кульки глазуровані (крупа кукурудзяна, борошно пшеничне 1/ґ, цукор, патока, " +
-                "сіль кухонна), сухе знежирене молоко, сіль кухонна, ароматизатор пряжене молоко. ");
-        ContentOfSweet moomooContent=new ContentOfSweet();
-        SweetComponentFactory componentFactory=new SweetComponentFactory();
-        moomooContent.addComponent(componentFactory.makeCaramelSelia(),0.756);
-        moomooContent.addComponent(componentFactory.makeChocolateWhiteSeria(),0.241);
-        candyMooMoo.setContentOfSweet(moomooContent);
-        candyMooMoo.setProductionDate(LocalDate.now());
-        candyMooMoo.setStorageTimeInDays(200);
-        candyMooMoo.setProducerRequisites("вул. Щорса, 67,\n м. Житомир,\n 10003, Україна");
-        return candyMooMoo;
+public abstract class SweetsFactory {
+    private static Gson gson = new Gson();
+
+    static CandyWithWrapper makeMooMoo() {
+        try {
+            CandyDTO parsed = gson.fromJson(new FileReader("src/main/resources/MooMoo.json"), CandyDTO.class);
+
+            CandyWithWrapper candyMooMoo = new CandyWithWrapper();
+            candyMooMoo.setName(parsed.getName());
+            candyMooMoo.setWrapper(parsed.getWrapper());
+            candyMooMoo.setCandyWeightGrammes(parsed.getCandyWeightGrammes());
+            candyMooMoo.setContentDescription(parsed.getContentDescription());
+            ContentOfSweet moomooContent = new ContentOfSweet();
+            if (parsed.getCaramelPart() > 0.001) {
+                moomooContent.addComponent(SweetComponentFactory.makeCaramelSelia(), parsed.getCaramelPart());
+            }
+            if (parsed.getChocolateWhitePart() > 0.001) {
+                moomooContent.addComponent(SweetComponentFactory.makeChocolateWhiteSeria(), parsed.getChocolateWhitePart());
+            }
+            if (parsed.getChocolateBlackPart() > 0.001) {
+                moomooContent.addComponent(SweetComponentFactory.makeChocolateBlackSample(), parsed.getChocolateBlackPart());
+            }
+            candyMooMoo.setContentOfSweet(moomooContent);
+            candyMooMoo.setProductionDate(LocalDate.now());
+            candyMooMoo.setStorageTimeInDays(parsed.getStorageTimeInDays());
+            candyMooMoo.setProducerRequisites(parsed.getProducerRequisites());
+            return candyMooMoo;
+        } catch (FileNotFoundException e) {
+            throw new DescriptionNotFound("There no MooMoo descriptions");
+        }
     }
 
-    public CandyWithWrapper makeBibosha(){
-        CandyWithWrapper candyBibosha=new CandyWithWrapper();
-        candyBibosha.setName("Бібоша");
-        candyBibosha.setWrapper("Буба бібо Бібоша!");
-        candyBibosha.setCandyWeightGrammes(14.5);
-        candyBibosha.setContentDescription("цукор, жир рослинний, кондитерська глазур, борошно пшеничне вищого сорту, " +
-                "какао-порошок, сухе знежирене молоко, крохмаль кукурудзяний, ароматизатор ваніль, " +
-                "емульгатор лецитин соєвий, сіль кухонна, розпушувачі, яєчний порошок, регулятор кислотності " +
-                "кислота молочна. Містять продукти переробки сої, молочні та яєчні продукти, пшеницю.");
-        ContentOfSweet biboshaContent=new ContentOfSweet();
-        SweetComponentFactory componentFactory=new SweetComponentFactory();
-        biboshaContent.addComponent(componentFactory.makeCaramelSelia(),0.756);
-        biboshaContent.addComponent(componentFactory.makeChocolateBlackSample(),0.241);
-        candyBibosha.setContentOfSweet(biboshaContent);
-        return candyBibosha;
+    static CandyWithWrapper makeBibosha() {
+        try {
+            CandyDTO parsed = gson.fromJson(new FileReader("src/main/resources/Bibosha.json"), CandyDTO.class);
+
+            CandyWithWrapper candyBibosha = new CandyWithWrapper();
+            candyBibosha.setName(parsed.getName());
+            candyBibosha.setWrapper(parsed.getWrapper());
+            candyBibosha.setCandyWeightGrammes(parsed.getCandyWeightGrammes());
+            candyBibosha.setContentDescription(parsed.getContentDescription());
+            ContentOfSweet biboshaContent = new ContentOfSweet();
+            if (parsed.getCaramelPart() > 0.001) {
+                biboshaContent.addComponent(SweetComponentFactory.makeCaramelSelia(), parsed.getCaramelPart());
+            }
+            if (parsed.getChocolateWhitePart() > 0.001) {
+                biboshaContent.addComponent(SweetComponentFactory.makeChocolateWhiteSeria(), parsed.getChocolateWhitePart());
+            }
+            if (parsed.getChocolateBlackPart() > 0.001) {
+                biboshaContent.addComponent(SweetComponentFactory.makeChocolateBlackSample(), parsed.getChocolateBlackPart());
+            }
+            candyBibosha.setContentOfSweet(biboshaContent);
+            candyBibosha.setProductionDate(LocalDate.now());
+            candyBibosha.setStorageTimeInDays(parsed.getStorageTimeInDays());
+            candyBibosha.setProducerRequisites(parsed.getProducerRequisites());
+            return candyBibosha;
+        } catch (FileNotFoundException e) {
+            throw new DescriptionNotFound("There no Bibosha descriptions");
+        }
+    }
+
+    static CandyWithWrapper makeZebra() {
+        try {
+            CandyDTO parsed = gson.fromJson(new FileReader("src/main/resources/Zebra.json"), CandyDTO.class);
+
+            CandyWithWrapper candyZebra = new CandyWithWrapper();
+            candyZebra.setName(parsed.getName());
+            candyZebra.setWrapper(parsed.getWrapper());
+            candyZebra.setCandyWeightGrammes(parsed.getCandyWeightGrammes());
+            candyZebra.setContentDescription(parsed.getContentDescription());
+            ContentOfSweet biboshaContent = new ContentOfSweet();
+            if (parsed.getCaramelPart() > 0.001) {
+                biboshaContent.addComponent(SweetComponentFactory.makeCaramelSelia(), parsed.getCaramelPart());
+            }
+            if (parsed.getChocolateWhitePart() > 0.001) {
+                biboshaContent.addComponent(SweetComponentFactory.makeChocolateWhiteSeria(), parsed.getChocolateWhitePart());
+            }
+            if (parsed.getChocolateBlackPart() > 0.001) {
+                biboshaContent.addComponent(SweetComponentFactory.makeChocolateBlackSample(), parsed.getChocolateBlackPart());
+            }
+            candyZebra.setContentOfSweet(biboshaContent);
+            candyZebra.setProductionDate(LocalDate.now());
+            candyZebra.setStorageTimeInDays(parsed.getStorageTimeInDays());
+            candyZebra.setProducerRequisites(parsed.getProducerRequisites());
+            return candyZebra;
+        } catch (FileNotFoundException e) {
+            throw new DescriptionNotFound("There no Zebra descriptions");
+        }
     }
 }
