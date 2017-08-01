@@ -10,10 +10,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.LocalDate;
 
-abstract class SweetsFactory {
+public abstract class SweetsFactory {
     private static Gson gson = new Gson();
 
-    static CandyWithWrapper makeMooMoo() {
+    public static CandyWithWrapper makeMooMoo() {
         try {
             CandyDTO parsed = gson.fromJson(new FileReader("src/main/resources/MooMoo.json"), CandyDTO.class);
 
@@ -42,7 +42,7 @@ abstract class SweetsFactory {
         }
     }
 
-    static CandyWithWrapper makeBibosha() {
+    public static CandyWithWrapper makeBibosha() {
         try {
             CandyDTO parsed = gson.fromJson(new FileReader("src/main/resources/Bibosha.json"), CandyDTO.class);
 
@@ -71,7 +71,7 @@ abstract class SweetsFactory {
         }
     }
 
-    static CandyWithWrapper makeZebra() {
+    public static CandyWithWrapper makeZebra() {
         try {
             CandyDTO parsed = gson.fromJson(new FileReader("src/main/resources/Zebra.json"), CandyDTO.class);
 
