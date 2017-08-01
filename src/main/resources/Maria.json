@@ -1,0 +1,11 @@
+{
+  "name": "Марія",
+  "wrapper": "Печиво Марія. Унікальна рецептура.",
+  "containPieces": 12,
+  "bakingTemperature": 120,
+  "energeticValue": 399.0,
+  "contentDescription": "борошно пшеничне, цукор, жир рослинний, крохмаль кукурудзяний, молоко сухе знежирене, розпушувачі, сіль, ароматизатор ванілін, кислота молочна. ",
+  "packageSizeGrammes": 200.0,
+  "producerRequisites": "вул. Щорса, 67,\n м. Житомир,\n 10003, Україна",
+  "storageTimeInDays": 45
+}

@@ -1,5 +1,0 @@
-{"name":"Корівка",
-"wrapper":"Крута корівка + ше шото там",
-"contentOfSweet":{"components":
-[{"componentName":"Карамель Житомирська",
-"componentProducer":"Житомирська кондитерська фабрика \n вул. Щорса, 67,м. Житомир, 10003, Україна","pricePerKilo":28.52,"kkaloryesPer100Grammes":103.6},{"componentName":"Білий шоколад Roshen","componentProducer":"Кондитерська фабрика Карла Маркса \n проспект Науки, 1, Київ, Україна","pricePerKilo":48.3,"kkaloryesPer100Grammes":162.32}],"percentOfComponent":[0.756,0.241]},"candyWeightGrammes":17.2,"producerRequisites":"вул. Щорса, 67,\n м. Житомир,\n 10003, Україна","contentDescription":"цукор, молоко незбиране згущене з цукром, патока, жир рослинний, кукурудзяні кульки глазуровані (крупа кукурудзяна, борошно пшеничне 1/ґ, цукор, патока, сіль кухонна), сухе знежирене молоко, сіль кухонна, ароматизатор пряжене молоко. ","productionDate":{"year":2017,"month":7,"day":30},"storageTimeInDays":200}
