@@ -2,7 +2,7 @@ package swets_as_goods.candy_implementations;
 
 import swets_as_goods.SugarBasedSweet;
 
-public class CandyWithWrapper extends SugarBasedSweet {
+public class CandyWithWrapper extends SugarBasedSweet implements Comparable<CandyWithWrapper> {
 String name;
 String wrapper;
 
@@ -23,4 +23,8 @@ String wrapper;
     }
 
 
+    @Override
+    public int compareTo(CandyWithWrapper other) {
+return Double.compare(this.getEnergeticValue(),other.getEnergeticValue());
+    }
 }

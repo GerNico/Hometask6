@@ -1,7 +1,5 @@
 package swets_as_goods.factory_patern;
 
-import swets_as_goods.Baking;
-import swets_as_goods.SugarBasedSweet;
 import swets_as_goods.candy_implementations.CandyWithWrapper;
 import swets_as_goods.candy_implementations.CookiesInAPack;
 import swets_as_goods.candy_implementations.PresentForKids;

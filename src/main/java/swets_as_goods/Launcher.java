@@ -18,7 +18,7 @@ public class Launcher {
                 break;
             }
             if (answer.equals("small")) {
-                present = PresentFactory.makeBigPresent();
+                present = PresentFactory.makeSmallPresent();
                 break;
             }
         }
@@ -29,6 +29,7 @@ public class Launcher {
             System.out.println(present.orderWrappersByEnergyValue());
             System.out.print("The weight is: ");
             System.out.println(present.getTotalWeight());
+            System.out.println(present.wrappersOfDeictic(20.0));
 
         }
     }

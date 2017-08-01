@@ -1,6 +1,6 @@
 package swets_as_goods;
 
-public abstract class Baking extends AbstractSweet implements Comparable<Baking> {
+public abstract class Baking extends AbstractSweet {
     private Double packageSizeGrammes;
     private String typeOfPackage;
     private int bakingTemperature;
@@ -12,11 +12,6 @@ public abstract class Baking extends AbstractSweet implements Comparable<Baking>
 
     public void setBakingTemperature(int bakingTemperature) {
         this.bakingTemperature = bakingTemperature;
-    }
-
-    @Override
-    public int compareTo(Baking other) {
-        return Double.compare(this.energeticValue, other.energeticValue);
     }
 
     public String getTypeOfPackage() {
