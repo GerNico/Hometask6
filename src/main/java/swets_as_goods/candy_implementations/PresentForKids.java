@@ -5,9 +5,9 @@ import java.util.List;
 import java.util.StringJoiner;
 
 public class PresentForKids {
-    String name;
-    List<CookiesInAPack> cookies;
-    List<CandyWithWrapper> candies;
+    private String name;
+    private List<CookiesInAPack> cookies;
+    private List<CandyWithWrapper> candies;
 
     public String getName() {
         return name;
