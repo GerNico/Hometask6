@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.LocalDate;
 
-public abstract class SweetsFactory {
+abstract class SweetsFactory {
     private static Gson gson = new Gson();
 
     static CandyWithWrapper makeMooMoo() {
